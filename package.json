@@ -1,0 +1,14 @@
+{
+  "name": "shop_rest_api_project",
+  "version": "1.0.0",
+  "description": "Node Rest Api Project for Shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Preet Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
