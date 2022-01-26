@@ -38,8 +38,13 @@ router.get('/:productId',(req,res,next)=>{
     }
 });
 router.post('/',(req,res,next)=>{
+    const product ={
+        name : req.body.name,
+        productId : req.body.productId,
+    };
     res.status(201).json({
-        message:'products were created'
+        message:'products were created',
+        product: product
     });
 });
 router.delete('/:productId',(req,res,next)=>{
