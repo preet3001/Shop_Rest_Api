@@ -10,10 +10,7 @@ const ordersRouter = require("./api/routes/orders");
 mongoose.connect(
   "mongodb+srv://preet:" +
     process.env.MONGO_ATLAS_PW +
-    "@cluster0.6rsif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  {
-    useMongoClient: true,
-  }
+    "@cluster0.6rsif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
 
 app.use(morgan("dev"));
