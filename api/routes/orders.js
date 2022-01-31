@@ -7,20 +7,7 @@ router.get('/',(req,res,next)=>{
         message:'orders were fetched'
     });
 });
-router.patch('/:orderId',(req,res,next)=>{
-    var id = req.params.orderId;
-    if(id=='special'){
-        res.status(201).json({
-            id:'this was special id',
-            message:'orders was patched'
-        });
-    }
-    else{
-        res.status(201).json({
-            message:'orders was patched'
-        });
-    }
-});
+
 router.get('/:orderId',(req,res,next)=>{
     var id = req.params.orderId;
     if(id=='special'){
@@ -45,8 +32,8 @@ router.post('/',(req,res,next)=>{
         order: order
     });
 });
-router.delete('/:productId',(req,res,next)=>{
-    var id = req.params.productId;
+router.delete('/:orderId',(req,res,next)=>{
+    var id = req.params.orderId;
     res.status(200).json({
         message:'orders were deleted',
         id:id
