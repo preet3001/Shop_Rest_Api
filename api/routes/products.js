@@ -25,7 +25,7 @@ router.patch("/:productId", (req, res, next) => {
     updateOps[ops.propName] = ops.value;
   }
   Product.updateOne({ _id: id }, { $set: updateOps })
-    .exuc()
+    .exec()
     .then((result) => {
       console.log(result);
       res.status(200).json(result);
@@ -51,7 +51,7 @@ router.patch("/:productId", (req, res, next) => {
 router.get("/:productId", (req, res, next) => {
   var id = req.params.productId;
   Product.findById(id)
-    .exuc()
+    .exec()
     .then((doc) => {
       console.log("From database", doc);
       if (doc) {
@@ -79,11 +79,8 @@ router.get("/:productId", (req, res, next) => {
   } */
 });
 router.post("/", (req, res, next) => {
-  const product = {
-    _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    price: req.body.price,
-  };
+    Product.init();
+  const product = new Product(req.body);
 
   product
     .save()
@@ -109,7 +106,7 @@ router.post("/", (req, res, next) => {
 router.delete("/:productId", (req, res, next) => {
   const id = req.params.productId;
   Product.remove({ _id: id })
-    .exuc()
+    .exec()
     .then((result) => {
       res.status(200).json(result);
     })
